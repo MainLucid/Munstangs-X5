@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustangs Flag Football - Velocidade, Estratégia e Paixão</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;600;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0f1d',
+                            card: '#111827',
+                            accent: '#3b82f6', // Bright Blue
+                            accentDark: '#1d4ed8',
+                            cyan: '#06b6d4',   // Electric Cyan
+                            orange: '#ff5722',
+                            textLight: '#f8fafc'
+                        }
+                    },
+                    fontFamily: {
+                        athletic: ['Teko', 'sans-serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles for Athletic Glow & Animations */
+        .text-glow {
+            text-shadow: 0 0 15px rgba(59, 130, 246, 0.6);
+        }
+        .text-glow-orange {
+            text-shadow: 0 0 15px rgba(6, 182, 212, 0.6);
+        }
+        .bg-pattern {
+            background-color: #060a12;
+            background-image: radial-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .clip-athletic {
+            clip-path: polygon(0 0, 100% 0, 95% 100%, 0% 100%);
+        }
+        .clip-card {
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 90% 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-pattern text-slate-100 font-sans antialiased selection:bg-brand-accent selection:text-slate-900">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-slate-950/90 backdrop-blur-md border-b border-blue-900/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl flex items-center justify-center transform -skew-x-12 shadow-lg shadow-blue-500/20">
+                        <i class="fa-solid fa-horse text-2xl text-white font-black"></i>
+                    </div>
+                    <div>
+                        <span class="font-athletic text-3xl font-bold tracking-wider text-white uppercase block leading-none">MUSTANGS <span class="text-brand-accent">FLAG</span></span>
+                        <span class="text-[10px] tracking-widest text-blue-300 uppercase block font-semibold">Football Team</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Navigation Menu -->
+                <div class="hidden lg:flex items-center space-x-6">
+                    <a href="#home" class="hover:text-brand-accent transition font-semibold text-sm uppercase tracking-wider">Início</a>
+                    <a href="#sobre" class="hover:text-brand-accent transition font-semibold text-sm uppercase tracking-wider">O Flag</a>
+                    <a href="#elenco" class="hover:text-brand-accent transition font-semibold text-sm uppercase tracking-wider">Elenco</a>
+                    <a href="#jogos" class="hover:text-brand-accent transition font-semibold text-sm uppercase tracking-wider">Jogos</a>
+                    <a href="#conquistas" class="hover:text-brand-accent transition font-semibold text-sm uppercase tracking-wider">Títulos</a>
+                    <a href="#peneira" class="bg-brand-accent text-white px-5 py-2.5 rounded-lg font-bold text-sm uppercase tracking-wider hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">Junte-se ao Time</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-slate-300 hover:text-white focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-b border-blue-900/40 px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-800 hover:text-brand-accent">Início</a>
+            <a href="#sobre" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-800 hover:text-brand-accent">O Flag Football</a>
+            <a href="#elenco" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-800 hover:text-brand-accent">Elenco de Atletas</a>
+            <a href="#jogos" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-800 hover:text-brand-accent">Jogos e Placiares</a>
+            <a href="#conquistas" class="mobile-link block px-3 py-2 rounded-md text-base font-semibold hover:bg-slate-800 hover:text-brand-accent">Títulos</a>
+            <a href="#peneira" class="mobile-link block w-full text-center bg-brand-accent text-white font-bold px-4 py-3 rounded-md uppercase tracking-wider">Peneira / Inscrição</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden min-h-screen flex items-center">
+        <!-- Ambient Glow Effects -->
+        <div class="absolute top-1/4 left-10 w-96 h-96 bg-blue-600/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-4xl mx-auto space-y-6 text-center">
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/80 border border-blue-800/60 text-blue-400 text-xs font-semibold tracking-widest uppercase">
+                    <span class="w-2 h-2 rounded-full bg-blue-400 animate-ping"></span>
+                    Temporada 2026 - Inscrições Abertas
+                </div>
+                <h1 class="font-athletic text-6xl sm:text-7xl lg:text-8xl font-bold uppercase tracking-tight leading-none">
+                    VELOCIDADE, <br class="hidden sm:inline"/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 text-glow">ESTRATÉGIA</span> E PAIXÃO
+                </h1>
+                <p class="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto">
+                    Somos os Mustangs. Praticamos a modalidade que mais cresce no mundo e estará nos Jogos Olímpicos. Sem equipamentos pesados, apenas habilidade, velocidade e trabalho em equipe!
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <a href="#peneira" class="w-full sm:w-auto px-8 py-4 bg-brand-accent text-white font-bold uppercase tracking-wider rounded-xl hover:bg-blue-600 transition transform hover:-translate-y-1 shadow-lg shadow-blue-500/30 text-center">
+                        Seja um Atleta / Peneira <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#elenco" class="w-full sm:w-auto px-8 py-4 bg-slate-900 border border-blue-900/50 text-white font-bold uppercase tracking-wider rounded-xl hover:bg-slate-800 transition text-center">
+                        Conheça o Elenco <i class="fa-solid fa-users ml-2"></i>
+                    </a>
+                </div>
+
+                <!-- Modalidades Tags -->
+                <div class="pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center gap-6 text-slate-400 text-sm">
+                    <span class="font-semibold text-slate-300">Modalidades:</span>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-mars text-blue-400"></i> Masculino 5v5</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-users text-blue-300"></i> Base / Misto</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="sobre" class="py-20 bg-slate-950 border-y border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Entenda o Esporte</h2>
+                <h3 class="font-athletic text-5xl font-bold uppercase text-white">O que é Flag Football?</h3>
+                <p class="text-slate-400 mt-2">Uma variação dinâmica e sem contato do Futebol Americano, onde o desarme é feito retirando a fita (flag) da cintura do adversário.</p>
+            </div>
+
+            <!-- 3 Key Features -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-blue-500/50 transition">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center text-blue-400 text-2xl mb-6">
+                        <i class="fa-solid fa-stopwatch"></i>
+                    </div>
+                    <h4 class="font-athletic text-2xl font-bold text-white mb-2">Agilidade & Dinamismo</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Jogo rápido com rotas precisas, passes dinâmicos e leituras de defesa estratégicas. A velocidade é essencial em cada jogada.</p>
+                </div>
+
+                <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-cyan-500/50 transition">
+                    <div class="w-12 h-12 bg-cyan-500/10 rounded-xl flex items-center justify-center text-cyan-400 text-2xl mb-6">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h4 class="font-athletic text-2xl font-bold text-white mb-2">Sem Contato Físico</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">Sem capacetes ou shoulder pads. Em vez de tacles brutais, o foco está na estratégia, na esquiva e na retirada limpa das fitas.</p>
+                </div>
+
+                <div class="bg-slate-900/60 p-8 rounded-2xl border border-slate-800 hover:border-blue-400/50 transition">
+                    <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center text-blue-300 text-2xl mb-6">
+                        <i class="fa-solid fa-medal"></i>
+                    </div>
+                    <h4 class="font-athletic text-2xl font-bold text-white mb-2">Modalidade Olímpica</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">O Flag Football foi confirmado como esporte olímpico oficial a partir dos Jogos de Los Angeles 2028!</p>
+                </div>
+            </div>
+
+            <!-- Team History & Rules Quick Modal Trigger -->
+            <div class="bg-gradient-to-r from-slate-900 via-blue-950/40 to-slate-900 rounded-2xl p-8 border border-blue-900/50 flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div class="space-y-3 text-center lg:text-left">
+                    <h4 class="font-athletic text-3xl font-bold text-white">Novo no esporte? Aprenda as regras básicas com os Mustangs</h4>
+                    <p class="text-slate-300 text-sm max-w-2xl">Descubra como funcionam os downs, pontuações, posições no campo e faltas do Flag 5v5.</p>
+                </div>
+                <button onclick="openRulesModal()" class="px-6 py-3 bg-brand-accent text-white font-bold uppercase tracking-wider rounded-xl hover:bg-blue-600 transition whitespace-nowrap shadow-lg shadow-blue-500/20">
+                    <i class="fa-solid fa-book-open mr-2"></i> Ver Guia de Regras
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROSTER / ATHLETES SECTION -->
+    <section id="elenco" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Nossos Guerreiros</h2>
+                    <h3 class="font-athletic text-5xl font-bold uppercase text-white">Elenco Principal</h3>
+                </div>
+
+                <!-- Position Filters -->
+            <div class="flex flex-wrap items-center gap-3 mt-6 md:mt-0">
+                <button onclick="toggleCardCreator()" class="px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-blue-600 to-cyan-500 text-white transition hover:brightness-110 shadow-lg shadow-blue-500/20 flex items-center gap-2">
+                    <i class="fa-solid fa-plus text-sm"></i> Criar Meu Card
+                </button>
+                <div class="h-6 w-px bg-slate-800 hidden sm:block"></div>
+                <button class="filter-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-brand-accent text-white transition" data-filter="all">Todos</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="ataque">Ataque</button>
+                <button class="filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-800 text-slate-300 hover:bg-slate-700 transition" data-filter="defesa">Defesa</button>
+            </div>
+        </div>
+
+        <!-- CUSTOM PLAYER CARD CREATOR FORM (COLLAPSIBLE TOGGLE) -->
+        <div id="card-creator-panel" class="hidden bg-slate-900/95 border border-blue-500/40 rounded-2xl p-6 mb-10 shadow-2xl backdrop-blur-md transition-all duration-300">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-blue-600/20 text-blue-400 rounded-lg flex items-center justify-center font-bold text-xl">
+                        <i class="fa-solid fa-id-card"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-athletic text-3xl font-bold text-white uppercase leading-none">Crie seu Card de Atleta</h4>
+                        <p class="text-xs text-slate-400">Monte seu card personalizado com foto, apelido, posição e estatísticas de jogo!</p>
+                    </div>
+                </div>
+                <button onclick="toggleCardCreator()" class="text-slate-400 hover:text-white text-xl p-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <form id="custom-player-form" onsubmit="createCustomPlayer(event)" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
+                <!-- Photo Input -->
+                <div class="sm:col-span-2 lg:col-span-2">
+                    <label class="block text-[11px] font-semibold text-slate-300 uppercase mb-1">Foto de Perfil (Arquivo ou Câmera)</label>
+                    <div class="flex items-center gap-2">
+                        <label class="flex-1 bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-slate-400 text-xs cursor-pointer hover:border-blue-500 transition flex items-center justify-between">
+                            <span id="file-name-label" class="truncate"><i class="fa-solid fa-image text-blue-400 mr-2"></i>Escolher Foto...</span>
+                            <input type="file" id="custom-photo" accept="image/*" onchange="previewSelectedImage(this)" class="hidden">
+                        </label>
+                        <div id="photo-preview-box" class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 overflow-hidden hidden flex-shrink-0">
+                            <img id="photo-preview-img" src="" alt="Preview" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 uppercase mb-1">Nickname / Apelido</label>
+                    <input type="text" id="custom-nickname" required placeholder="Ex: Bolt" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 uppercase mb-1">Número da Camisa</label>
+                    <input type="text" id="custom-number" required placeholder="Ex: #10" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-[11px] font-semibold text-slate-300 uppercase mb-1">Posição</label>
+                    <select id="custom-position" required class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500">
+                        <option value="ataque|Quarterback (QB)">Quarterback (QB) - Ataque</option>
+                        <option value="ataque|Wide Receiver (WR)">Wide Receiver (WR) - Ataque</option>
+                        <option value="ataque|Center / RB">Center / Running Back - Ataque</option>
+                        <option value="defesa|Defensive Back (DB)">Defensive Back (DB) - Defesa</option>
+                        <option value="defesa|Rusher / Blitzer">Rusher / Blitzer - Defesa</option>
+                        <option value="defesa|Linebacker (LB)">Linebacker (LB) - Defesa</option>
+                    </select>
+                </div>
+                <div class="sm:col-span-2 lg:col-span-6 grid grid-cols-1 sm:grid-cols-4 gap-4">
+                    <div class="sm:col-span-3">
+                        <label class="block text-[11px] font-semibold text-slate-300 uppercase mb-1">Estatística / Pontuação</label>
+                        <input type="text" id="custom-stats" required placeholder="Ex: 15 TDs, 8 INTs, 20 Deflagged" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-blue-500">
+                    </div>
+                    <div class="flex items-end">
+                        <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-bold uppercase tracking-wider py-2.5 rounded-lg text-xs hover:brightness-110 transition shadow-lg shadow-blue-500/20">
+                            <i class="fa-solid fa-plus mr-1"></i> Criar Meu Card
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Player Cards Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="player-grid">
+                <!-- Os atletas de teste foram removidos. Os novos cards criados aparecerão aqui dinamicamente! -->
+            </div>
+        </div>
+    </section>
+
+    <!-- MATCHES & RESULTS SECTION -->
+    <section id="jogos" class="py-20 bg-slate-950 border-t border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-blue-400 text-sm font-bold tracking-widest uppercase mb-2">Calendário</h2>
+                <h3 class="font-athletic text-5xl font-bold uppercase text-white">Jogos & Resultados</h3>
+            </div>
+
+            <!-- Empty Matches State -->
+            <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-12 text-center max-w-2xl mx-auto">
+                <div class="w-16 h-16 bg-blue-500/10 rounded-2xl flex items-center justify-center text-blue-400 text-3xl mx-auto mb-4 border border-blue-500/20">
+                    <i class="fa-solid fa-calendar-xmark"></i>
+                </div>
+                <h4 class="font-athletic text-3xl font-bold text-white uppercase mb-2">Sem Jogos Agendados</h4>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">
+                    A tabela oficial e as datas das próximas partidas do Mustangs serão divulgadas em breve. Fique atento às nossas redes sociais para mais novidades!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- RECRUITMENT / CONTACT SECTION -->
+    <section id="peneira" class="py-20 bg-slate-950 border-t border-blue-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Registration Form -->
+                <div class="lg:col-span-7 bg-slate-900 p-8 rounded-2xl border border-slate-800">
+                    <h3 class="font-athletic text-4xl font-bold uppercase text-white mb-2">Faça Parte do Time</h3>
+                    <p class="text-slate-400 text-sm mb-6">Preencha o formulário abaixo para participar do nosso próximo treino aberto / peneira.</p>
+
+                    <form id="tryout-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Nome Completo</label>
+                                <input type="text" required placeholder="Seu nome" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">WhatsApp / Telefone</label>
+                                <input type="tel" required placeholder="(00) 90000-0000" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Idade</label>
+                                <input type="number" required placeholder="Ex: 20" min="12" max="60" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Posição de Interesse</label>
+                                <select class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition text-sm">
+                                    <option>Ataque (QB, WR, RB)</option>
+                                    <option>Defesa (DB, LB, Rusher)</option>
+                                    <option>Ainda não sei / Iniciante</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-300 uppercase mb-1">Experiência Anterior</label>
+                            <textarea rows="3" placeholder="Já praticou algum esporte com bola ou Flag Football?" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 bg-brand-accent text-white font-bold uppercase tracking-wider rounded-xl hover:bg-blue-600 transition shadow-lg shadow-blue-500/20">
+                            Enviar Inscrição
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Training Details & Map Placeholder -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="bg-slate-900 p-6 rounded-2xl border border-slate-800">
+                        <h4 class="font-athletic text-2xl font-bold text-white mb-4">Informações de Treino</h4>
+                        
+                        <div class="space-y-4 text-sm text-slate-300">
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-calendar-days text-blue-400 mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">Dias:</strong>
+                                    Sábados
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-clock text-blue-400 mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">Horário:</strong>
+                                    18:00 às 19:00
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <i class="fa-solid fa-map-location-dot text-blue-400 mt-1"></i>
+                                <div>
+                                    <strong class="text-white block">Local:</strong>
+                                    Av. Champagnat, 1808 - Centro, Franca - SP
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Map Component -->
+                    <div class="bg-slate-900 rounded-2xl border border-slate-800 h-52 overflow-hidden relative flex items-center justify-center">
+                        <div class="text-center p-4">
+                            <i class="fa-solid fa-map-pin text-4xl text-cyan-400 mb-2 animate-bounce"></i>
+                            <p class="font-bold text-white text-sm">Campo de Treinamento Mustangs</p>
+                            <p class="text-xs text-slate-400 mt-1">Av. Champagnat, 1808 - Centro, Franca - SP</p>
+                            <a href="https://maps.google.com/?cid=2499403487151581357" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-xs bg-blue-600 hover:bg-blue-500 text-white font-bold px-3 py-1.5 rounded-lg transition">
+                                <i class="fa-solid fa-arrow-up-right-from-square mr-1"></i> Abrir no Google Maps
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center font-black text-white text-xl"><i class="fa-solid fa-horse"></i></div>
+                <span class="font-athletic text-2xl font-bold text-white">MUSTANGS FLAG FOOTBALL</span>
+            </div>
+
+            <p class="text-xs text-slate-500">© 2026 Mustangs Flag Football. Todos os direitos reservados.</p>
+
+            <!-- Social Media Icons -->
+            <div class="flex items-center gap-4 text-xl text-slate-400">
+                <a href="https://www.instagram.com/mustangs.oficial/" target="_blank" rel="noopener noreferrer" class="hover:text-blue-400 transition" title="Instagram Oficial @mustangs.oficial"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" class="hover:text-blue-400 transition"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- PLAYER DETAILS MODAL -->
+    <div id="player-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-md w-full p-6 relative">
+            <button onclick="closePlayerModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <span id="modal-number" class="font-athletic text-5xl font-bold text-blue-400 block">#00</span>
+            <h3 id="modal-name" class="font-athletic text-4xl font-bold text-white uppercase mt-1">Nome do Jogador</h3>
+            <span id="modal-position" class="text-xs font-bold uppercase tracking-widest text-slate-400 bg-slate-800 px-3 py-1 rounded-md inline-block my-2">Posição</span>
+            
+            <div class="border-t border-slate-800 mt-4 pt-4 space-y-2 text-sm text-slate-300">
+                <p><strong>Setor:</strong> <span id="modal-sector">--</span></p>
+                <p><strong>Estatística Destaque:</strong> <span id="modal-stat">--</span></p>
+                <p><strong>Tempo no Time:</strong> <span id="modal-time">--</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RULES MODAL -->
+    <div id="rules-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl max-w-lg w-full p-6 relative max-h-[80vh] overflow-y-auto">
+            <button onclick="closeRulesModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <h3 class="font-athletic text-3xl font-bold text-white uppercase mb-4">Regras Básicas do Flag Football 5v5</h3>
+            <div class="space-y-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                <p>🏈 <strong>Sem Contato:</strong> É proibido bloquear, empurrar ou dar tackles físicos.</p>
+                <p>🚩 <strong>Retirada da Flag:</strong> Para parar o avanço do portador da bola, a defesa deve retirar pelo menos uma fita da sua cintura.</p>
+                <p>🎯 <strong>4 Downs:</strong> O ataque tem 4 tentativas para cruzar o meio do campo e obter o first down, e mais 4 para marcar o Touchdown.</p>
+                <p>⏱️ <strong>Corrida vs Passe:</strong> Não há chutes de fundo (punts/kickoffs). As jogadas começam na linha de 5 jardas.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        let uploadedPhotoBase64 = null;
+
+        // Toggle Creator Panel
+        function toggleCardCreator() {
+            const panel = document.getElementById('card-creator-panel');
+            panel.classList.toggle('hidden');
+        }
+
+        // LocalStorage Key
+        const STORAGE_KEY = 'mustangs_custom_players';
+
+        // Load players from localStorage on startup
+        window.addEventListener('DOMContentLoaded', () => {
+            loadSavedPlayers();
+        });
+
+        function savePlayerToStorage(playerData) {
+            const currentPlayers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            currentPlayers.unshift(playerData); // Add to beginning
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(currentPlayers));
+        }
+
+        function removePlayerFromStorage(id) {
+            let currentPlayers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            currentPlayers = currentPlayers.filter(p => p.id !== id);
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(currentPlayers));
+        }
+
+        function loadSavedPlayers() {
+            const savedPlayers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+            savedPlayers.forEach(player => {
+                renderPlayerCard(player, false); // false = don't save again
+            });
+        }
+
+        function previewSelectedImage(input) {
+            const label = document.getElementById('file-name-label');
+            const previewBox = document.getElementById('photo-preview-box');
+            const previewImg = document.getElementById('photo-preview-img');
+
+            if (input.files && input.files[0]) {
+                const file = input.files[0];
+                label.innerText = file.name;
+
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedPhotoBase64 = e.target.result;
+                    previewImg.src = uploadedPhotoBase64;
+                    previewBox.classList.remove('hidden');
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function deleteCard(event, cardElement, playerId) {
+            event.stopPropagation(); // Prevents opening the modal when clicking delete
+            if (playerId) {
+                removePlayerFromStorage(playerId);
+            }
+            cardElement.remove();
+        }
+
+        // Custom Player Card Creator Logic
+        function createCustomPlayer(event) {
+            event.preventDefault();
+            
+            const nickname = document.getElementById('custom-nickname').value;
+            let number = document.getElementById('custom-number').value.trim();
+            if(!number.startsWith('#')) number = '#' + number;
+            
+            const positionVal = document.getElementById('custom-position').value.split('|');
+            const sector = positionVal[0]; // ataque ou defesa
+            const position = positionVal[1];
+            const stats = document.getElementById('custom-stats').value;
+
+            // Avatar fallback if no photo uploaded
+            const defaultAvatars = [
+                "https://images.unsplash.com/photo-1566577739112-5180d4bf9390?auto=format&fit=crop&q=80&w=400",
+                "https://images.unsplash.com/photo-1517649763962-0c623266010b?auto=format&fit=crop&q=80&w=400",
+                "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&q=80&w=400"
+            ];
+            
+            const avatar = uploadedPhotoBase64 ? uploadedPhotoBase64 : defaultAvatars[Math.floor(Math.random() * defaultAvatars.length)];
+
+            const playerData = {
+                id: 'player_' + Date.now(),
+                nickname,
+                number,
+                sector,
+                position,
+                stats,
+                avatar
+            };
+
+            renderPlayerCard(playerData, true);
+
+            // Reset form and photo preview state
+            document.getElementById('custom-player-form').reset();
+            document.getElementById('file-name-label').innerHTML = '<i class="fa-solid fa-image text-blue-400 mr-2"></i>Escolher Foto...';
+            document.getElementById('photo-preview-box').classList.add('hidden');
+            uploadedPhotoBase64 = null;
+        }
+
+        function renderPlayerCard(playerData, saveToStore = true) {
+            const { id, nickname, number, sector, position, stats, avatar } = playerData;
+            
+            if (saveToStore) {
+                savePlayerToStorage(playerData);
+            }
+
+            const isAtaque = sector === 'ataque';
+            const sectorLabel = isAtaque ? 'Ataque' : 'Defesa';
+            const sectorColorClass = isAtaque ? 'text-blue-400 bg-blue-950 border-blue-900/50 hover:border-blue-500' : 'text-cyan-400 bg-cyan-950 border-cyan-900/50 hover:border-cyan-500';
+            const numColorClass = isAtaque ? 'text-blue-400' : 'text-cyan-400';
+
+            const playerGrid = document.getElementById('player-grid');
+            
+            const newCard = document.createElement('div');
+            newCard.className = `player-card ${sector} bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden ${isAtaque ? 'hover:border-blue-500' : 'hover:border-cyan-500'} transition group cursor-pointer relative`;
+            
+            const safeNickname = nickname.replace(/'/g, "\\'");
+            const safeStats = stats.replace(/'/g, "\\'");
+            
+            newCard.setAttribute('onclick', `openPlayerModal('${safeNickname}', '${number}', '${position}', '${sectorLabel}', '${safeStats}', 'Recém Cadastrado')`);
+
+            newCard.innerHTML = `
+                <!-- Delete Button for User Cards -->
+                <button onclick="deleteCard(event, this.parentElement, '${id}')" title="Excluir este card" class="absolute top-3 left-3 z-30 w-8 h-8 bg-red-600/80 hover:bg-red-600 text-white rounded-lg flex items-center justify-center transition shadow-md backdrop-blur-sm">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                </button>
+                <div class="h-64 bg-slate-800 relative flex items-end justify-center overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent z-10"></div>
+                    <img src="${avatar}" alt="${nickname}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                    <span class="absolute top-3 right-3 z-20 font-athletic text-4xl font-bold ${numColorClass} bg-slate-950/80 px-3 py-0.5 rounded-lg border border-slate-800">${number}</span>
+                </div>
+                <div class="p-5 relative z-20">
+                    <span class="text-[10px] font-bold uppercase tracking-widest ${sectorColorClass} px-2 py-0.5 rounded border">${sectorLabel}</span>
+                    <h4 class="font-athletic text-3xl font-bold text-white mt-1 leading-none">${nickname}</h4>
+                    <p class="text-slate-400 text-xs mt-1">${position}</p>
+                    <p class="text-xs text-blue-400 font-semibold mt-2"><i class="fa-solid fa-chart-simple mr-1"></i> ${stats}</p>
+                </div>
+            `;
+
+            playerGrid.prepend(newCard);
+
+            // Hide panel automatically after creation if manual
+            if (saveToStore) {
+                toggleCardCreator();
+            }
+
+            // Re-apply filter if needed
+            const activeFilterBtn = document.querySelector('.filter-btn.active');
+            if (activeFilterBtn) {
+                const activeFilter = activeFilterBtn.getAttribute('data-filter');
+                if (activeFilter !== 'all' && activeFilter !== sector) {
+                    newCard.style.display = 'none';
+                }
+            }
+        }
+<!-- ... existing code ... />
